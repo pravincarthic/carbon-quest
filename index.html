@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carbon Quest</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+
+  <section id="home" class="screen">
+    <header class="hero">
+      <img class="emblem" src="assets/emblem.png" alt="Ball and stick model of a substituted benzene ring" width="512" height="512">
+      <div class="hero-text">
+        <p class="eyebrow">Organic chemistry arcade</p>
+        <h1>Carbon<br>Quest</h1>
+        <p class="lede">Spot functional groups, name molecules by IUPAC rules and predict reaction products. Ten questions a round, three lives, and a clock that pays for speed.</p>
+      </div>
+    </header>
+
+    <div class="modes" id="modes"></div>
+
+    <p class="keys"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> answer &nbsp; <kbd>Enter</kbd> next question</p>
+  </section>
+
+  <section id="play" class="screen" hidden>
+    <div class="hud">
+      <button class="ghost" id="quit" type="button">Quit</button>
+      <span class="hud-mode" id="hudMode"></span>
+      <span class="hud-q" id="hudQ"></span>
+      <span class="lives" id="lives" aria-label="Lives"></span>
+      <span class="streak" id="streak"></span>
+      <span class="score" id="score">0</span>
+    </div>
+    <div class="timer"><div class="timer-fill" id="timerFill"></div></div>
+
+    <article class="card">
+      <p class="prompt" id="prompt"></p>
+      <div class="stage"><canvas id="stage" aria-label="Molecule structure"></canvas></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback" hidden>
+        <p class="verdict" id="verdict"></p>
+        <p class="why" id="why"></p>
+        <button class="primary" id="next" type="button">Next question</button>
+      </div>
+    </article>
+  </section>
+
+  <section id="end" class="screen" hidden>
+    <div class="result">
+      <img class="medal" id="medal" src="assets/medal-gold.png" alt="" width="256" height="256">
+      <p class="eyebrow" id="endMode"></p>
+      <h2 id="endTitle"></h2>
+      <dl class="stats">
+        <div><dt>Score</dt><dd id="endScore"></dd></div>
+        <div><dt>Accuracy</dt><dd id="endAcc"></dd></div>
+        <div><dt>Best streak</dt><dd id="endStreak"></dd></div>
+        <div><dt>Personal best</dt><dd id="endBest"></dd></div>
+      </dl>
+      <div class="end-actions">
+        <button class="primary" id="again" type="button">Play again</button>
+        <button class="ghost" id="menu" type="button">Choose mode</button>
+      </div>
+    </div>
+    <div class="review" id="reviewWrap">
+      <h3>Review your misses</h3>
+      <ul id="review"></ul>
+    </div>
+  </section>
+
+</div>
+<script src="game.js"></script>
+</body>
+</html>
